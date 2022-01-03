@@ -8,9 +8,9 @@ This directory contains three independent Maven projects with the minimal
 configuration required to get started with JDBC and MariaDB. Each project
 showcases a specific feature of JDBC:
 
-- part1: Opening and closing database connections
-- part2: Executing SQL statements using JDBC
-- part3: Using connection pools (HikariCP)
+- [part1](part1/): Opening and closing database connections
+- [part2](part2/): Executing SQL statements using JDBC
+- [part3](part3/): Using connection pools (HikariCP)
 
 ## Running the apps
 
