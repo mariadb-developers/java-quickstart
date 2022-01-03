@@ -5,8 +5,8 @@ use SQL databases. JDBC is the foundation technology used by persistence
 frameworks such as JPA, Hibernate, MyBatis, and jOOQ.
 
 This directory contains three independent Maven projects with the minimal
-configuration to required to get started with JDBC and MariaDB. Each
-project showcases a specific feature of JDBC:
+configuration required to get started with JDBC and MariaDB. Each project
+showcases a specific feature of JDBC:
 
 - part1: Opening and closing database connections
 - part2: Executing SQL statements using JDBC
