@@ -4,9 +4,9 @@ This Maven project shows the minimal configuration needed to connect to
 MariaDB databases using Java Database Connectivity (JDBC) without any
 other persistence frameworks.
 
-# TL;DR
+## TL;DR
 
-JDBC Driver ([check](https://mariadb.com/docs/clients/mariadb-connectors/connector-j)
+Add the JDBC Driver ([check](https://mariadb.com/docs/clients/mariadb-connectors/connector-j)
 the latest version):
 
 ```xml
@@ -17,7 +17,7 @@ the latest version):
 </dependency>
 ```
 
-Open connection:
+Open the connection (alternatively use a try-catch block to close the connection automatically):
 
 ```java
 Connection connection = DriverManager.getConnection(
@@ -26,7 +26,7 @@ Connection connection = DriverManager.getConnection(
 );
 ```
 
-Close connection:
+Close the connection (if not using a try-catch block):
 
 ```java
 connection.close();

@@ -1,0 +1,69 @@
+# JDBC Quickstart - Part 2 (executing SQL statements)
+
+This Maven project shows how to run SQL statements to perform
+CRUD (Create, Read, Update, Delete) operations.
+
+## TL;DR
+
+Create (`INSERT`), update (`UPDATE`), and delete (`DELETE`):
+
+```java
+try (PreparedStatement statement = connection.prepareStatement("""
+            INSERT INTO table_name(column1, column2)
+            VALUES (?, ?)
+        """)) {
+    statement.setString(1, someString);
+    statement.setInt(2, someInteger);
+    int rowsInserted = statement.executeUpdate();
+}
+```
+
+Read (`SELECT`):
+
+```java
+try (PreparedStatement statement = connection.prepareStatement("""
+            SELECT column1, column2
+            FROM table_name
+        """)) {
+    ResultSet resultSet = statement.executeQuery();
+    while (resultSet.next()) {
+        String val1 = resultSet.getString(1); // by column index
+        int val2 = resultSet.getInt("column2"); // by column name
+        // ... use val1 and val2 ...
+    }
+}
+```
+
+## Requirements
+
+- Java 17 or later. Previous versions should work (update the version
+  in the **pom.xml** file).
+- [Apache Maven](https://maven.apache.org).
+- MariaDB server. If you don't want to install
+  anything extra, try creating a
+  [free SkySQL account](https://mariadb.com/products/skysql)).
+- An SQL client tool like `mariadb`, DBeaver, or a SQL integration for
+  your IDE. Execute the following SQL sentence: `CREATE DATABASE jdbc_demo;`.
+Create the following table:
+
+```sql
+CREATE TABLE programming_language(
+    name VARCHAR(50) NOT NULL UNIQUE,
+    Rating INT
+);
+```
+
+## Running the app
+
+Run the following from the command line:
+
+```
+git clone git@github.com:mariadb-developers/java-quickstart.git
+cd java-quickstart/jdbc/part2/
+mvn package
+java -jar  java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
+```
+
+## Tutorial
+
+*(Work in progress. Stay tuned!)*
