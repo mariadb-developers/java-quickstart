@@ -28,7 +28,7 @@ java -jar  java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
 
 ## Helpful Resources
 
-Read the tutorial (available soon) or watch the video for detailed steps
+Read the [tutorial](https://dzone.com/articles/jdbc-tutorial-part-1-connecting-to-a-database) or watch the video for detailed steps
 on how to implement this application from scratch.
 
 [![JDBC Tutorial part 1/3 – Database connections](https://img.youtube.com/vi/ceAev_93p3s/hqdefault.jpg)](https://www.youtube.com/watch?v=ceAev_93p3s)
