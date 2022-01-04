@@ -13,7 +13,7 @@ the latest version):
 <dependency>
     <groupId>org.mariadb.jdbc</groupId>
     <artifactId>mariadb-java-client</artifactId>
-    <version>2.7.4</version>
+    <version>LATEST</version>
 </dependency>
 ```
 
