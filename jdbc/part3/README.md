@@ -38,7 +38,7 @@ try (Connection connection = dataSource.getConnection()) {
 }
 ```
 
-Close the datasource at application shutdown:
+Close the `DataSource` at application shutdown:
 
 ```java
 dataSource.close();
@@ -52,18 +52,25 @@ dataSource.close();
 - MariaDB server. If you don't want to install
   anything extra, try creating a
   [free SkySQL account](https://mariadb.com/products/skysql)).
-- An SQL client tool like `mariadb`, DBeaver, or a SQL integration for
-  your IDE. Execute the following SQL sentence: `CREATE DATABASE jdbc_demo;`.
-Create the following table:
+- An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
+  your IDE.
+
+## Running the app
+
+Prepare the database:
 
 ```sql
+CREATE DATABASE jdbc_demo;
+CREATE USER 'user'@'%';
+GRANT ALL ON jdbc_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+
+USE jdbc_demo;
 CREATE TABLE programming_language(
     name VARCHAR(50) NOT NULL UNIQUE,
     Rating INT
 );
 ```
-
-## Running the app
 
 Run the following from the command line:
 

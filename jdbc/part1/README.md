@@ -40,10 +40,19 @@ connection.close();
 - MariaDB server. If you don't want to install
   anything extra, try creating a
   [free SkySQL account](https://mariadb.com/products/skysql)).
-- An SQL client tool like `mariadb`, DBeaver, or a SQL integration for
-  your IDE. Execute the following SQL sentence: `CREATE DATABASE jdbc_demo;`.
+- An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
+  your IDE.
 
 ## Running the app
+
+Prepare the database:
+
+```sql
+CREATE DATABASE jdbc_demo;
+CREATE USER 'user'@'%';
+GRANT ALL ON jdbc_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+```
 
 Run the following from the command line:
 
@@ -53,6 +62,10 @@ cd java-quickstart/jdbc/part1/
 mvn package
 java -jar  java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
 ```
+
+Screenshot of the output:
+
+![Output](https://dz2cdn1.dzone.com/storage/temp/15510536-3-jdbc-output.png)
 
 ## Tutorial
 
