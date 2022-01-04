@@ -67,16 +67,17 @@ public class Application {
                         FROM programming_language
                         ORDER BY rating DESC
                     """)) {
-                ResultSet resultSet = statement.executeQuery();
-                boolean empty = true;
-                while (resultSet.next()) {
-                    empty = false;
-                    String name = resultSet.getString("name");
-                    int rating = resultSet.getInt("rating");
-                    System.out.println("\t> " + name + ": " + rating);
-                }
-                if (empty) {
-                    System.out.println("\t (no data)");
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    boolean empty = true;
+                    while (resultSet.next()) {
+                        empty = false;
+                        String name = resultSet.getString("name");
+                        int rating = resultSet.getInt("rating");
+                        System.out.println("\t> " + name + ": " + rating);
+                    }
+                    if (empty) {
+                        System.out.println("\t (no data)");
+                    }
                 }
             }
         }
