@@ -12,8 +12,9 @@ showcases a specific feature of JDBC:
 - [part2](part2/): Executing SQL statements using JDBC
 - [part3](part3/): Using connection pools (HikariCP)
 
-It also contains an example ([mariadb-pool](mariadb-pool/)) that shows how to use the connection pool
-included with the MariaDB JDBC driver.
+This directory also contains an example ([mariadb-pool](mariadb-pool/))
+that shows how to use the connection pool included with the MariaDB JDBC
+driver.
 
 ## Running the apps
 
