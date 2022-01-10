@@ -48,7 +48,7 @@ Run the following from the command line:
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jdbc/mariadb-pool/
 mvn package
-java -jar  java -jar target/mariadb-pool-1.0-SNAPSHOT.jar
+java -jar target/mariadb-pool-1.0-SNAPSHOT.jar
 ```
 
 The application simulates concurrent requests to the `Service` class, which reads data from
