@@ -58,7 +58,7 @@ FLUSH PRIVILEGES;
 USE jdbc_demo;
 CREATE TABLE programming_language(
     name VARCHAR(50) NOT NULL UNIQUE,
-    Rating INT
+    rating INT
 );
 ```
 
