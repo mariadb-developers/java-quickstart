@@ -73,4 +73,6 @@ java -jar  java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
 
 ## Tutorial
 
-*(Work in progress. Stay tuned!)*
+Read the [tutorial](https://dzone.com/articles/jdbc-tutorial-part-2-running-sql-queries) or watch the video for detailed steps on how to implement this example from scratch:
+
+[![JDBC Tutorial part 1/3 – Database connections](https://img.youtube.com/vi/nWhZl4cMjRw/hqdefault.jpg)](https://www.youtube.com/watch?v=nWhZl4cMjRw)
