@@ -6,7 +6,7 @@ other persistence frameworks.
 
 ## TL;DR
 
-Add the JDBC Driver ([check](https://mariadb.com/docs/clients/mariadb-connectors/connector-j)
+Add the JDBC Driver ([check](https://mariadb.com/docs/clients/mariadb-connectors/connector-j/#latest-software-releases)
 the latest version):
 
 ```xml
