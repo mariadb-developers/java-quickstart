@@ -5,13 +5,13 @@ with MariaDB.
 
 ## TL;DR
 
-Add HikariCP in the **pom.xml** file:
+Add HikariCP in the **pom.xml** file ([check](https://search.maven.org/artifact/com.zaxxer/HikariCP) the latest version):
 
 ```xml
 <dependency>
     <groupId>com.zaxxer</groupId>
     <artifactId>HikariCP</artifactId>
-    <version>5.0.0</version>
+    <version>LATEST</version>
 </dependency>
 ```
 
