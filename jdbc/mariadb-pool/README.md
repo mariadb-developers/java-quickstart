@@ -68,5 +68,5 @@ A database connection pool maintains a set of connections that threads can "borr
 MariaDB JDBC driver (Connector/J) includes a connection pool ready to use.
 
 To use a connection pool, just change the type of `DataSource` instanciated in the `Service`
-constructor from `MariaDbDataSource` to `MariaDbPoolDataSource`. Compila and run the app again
+constructor from `MariaDbDataSource` to `MariaDbPoolDataSource`. Compile and run the app again
 and see how it can now handle all the requests without errors.
