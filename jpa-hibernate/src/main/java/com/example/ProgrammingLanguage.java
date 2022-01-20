@@ -10,13 +10,13 @@ public class ProgrammingLanguage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pro_id")
+    @Column(name = "pl_id")
     private Integer id;
 
-    @Column(name = "pro_name")
+    @Column(name = "pl_name")
     private String name;
 
-    @Column(name = "pro_rating")
+    @Column(name = "pl_rating")
     private Integer rating;
 
     public ProgrammingLanguage() {
