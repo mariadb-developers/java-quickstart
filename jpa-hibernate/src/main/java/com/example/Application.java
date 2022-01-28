@@ -30,13 +30,11 @@ public class Application {
     }
 
     private static void printTopProgrammingLanguages() {
-        List<ProgrammingLanguage> programmingLanguages = jpaService.runInTransaction(entityManager -> {
-            List<ProgrammingLanguage> list = entityManager.createQuery(
-                    "select p from ProgrammingLanguage p where p.rating > 5",
-                    ProgrammingLanguage.class
-            ).getResultList();
-            return list;
-        });
+        List<ProgrammingLanguage> programmingLanguages = jpaService.runInTransaction(entityManager ->
+                entityManager.createQuery(
+                        "select p from ProgrammingLanguage p where p.rating > 5",
+                        ProgrammingLanguage.class
+                ).getResultList());
 
         programmingLanguages.stream()
                 .map(pl -> pl.getName() + ": " + pl.getRating())
