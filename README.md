@@ -1,5 +1,7 @@
 # Quick Start: Java and MariaDB
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
+
 Pick your technology:
 
 - [JDBC (Java Database Connectivity)](jdbc/): The foundational technology used for persistence in Java.
