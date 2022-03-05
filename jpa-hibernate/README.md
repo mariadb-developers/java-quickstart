@@ -113,5 +113,6 @@ java -jar target/jpa-hibernate-1.0-SNAPSHOT.jar
 [//]: # (insert screenshot)
 ## Tutorial
 
-*Work in progress... Stay tuned!*
+Read the [tutorial](https://dzone.com/articles/getting-started-with-jpahibernate) or watch the video for detailed steps on how to implement this example from scratch:
 
+[![JPA/Hibernate tutorial for beginners](https://img.youtube.com/vi/UVo2SRR-ZRM/hqdefault.jpg)](https://www.youtube.com/watch?v=UVo2SRR-ZRM)
