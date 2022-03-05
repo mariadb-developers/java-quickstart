@@ -1,7 +1,5 @@
 # JDBC Quickstart
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
-
 Java Database Connectivity (JDBC) is an API that allows Java applications
 use SQL databases. JDBC is the foundation technology used by persistence
 frameworks such as JPA, Hibernate, MyBatis, and jOOQ.
