@@ -1,5 +1,7 @@
 # JDBC Quickstart
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
+
 Java Database Connectivity (JDBC) is an API that allows Java applications
 use SQL databases. JDBC is the foundation technology used by persistence
 frameworks such as JPA, Hibernate, MyBatis, and jOOQ.
@@ -37,6 +39,3 @@ Or reach out to us directly via:
 
 * [developers@mariadb.com](mailto:developers@mariadb.com)
 * [MariaDB Twitter](https://twitter.com/mariadb)
-
-## License <a name="license"></a>
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
