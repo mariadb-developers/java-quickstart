@@ -25,8 +25,8 @@ public interface ProgrammingLanguageMapper {
     @Select("""
             SELECT name, rating
             FROM programming_language
-            WHERE rating > 3
+            WHERE rating > #{rating}
             """)
-    List<ProgrammingLanguage> findTopProgrammingLanguages();
+    List<ProgrammingLanguage> findTopProgrammingLanguages(@Param("rating") int rating);
 
 }

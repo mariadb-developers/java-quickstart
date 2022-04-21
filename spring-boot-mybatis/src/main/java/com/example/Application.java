@@ -26,7 +26,7 @@ public class Application {
 		return args -> {
 			deleteProgrammingLanguages();
 			createProgrammingLanguages();
-			printTopProgrammingLanguages();
+			printTopProgrammingLanguages(5);
 		};
 	}
 
@@ -38,13 +38,13 @@ public class Application {
 	private void createProgrammingLanguages() {
 		System.out.println("Creating programming languages...");
 		Arrays.stream("Java,C++,C#,JavaScript,Rust,Go,Python,PHP".split(","))
-				.forEach(name -> programmingLanguageMapper.insert(name, (int) (Math.random() * 10)));
+				.forEach(name -> programmingLanguageMapper.insert(name, (int)(Math.random() * ( 10 - 3 + 1)) + 3));
 	}
 
-	private void printTopProgrammingLanguages() {
+	private void printTopProgrammingLanguages(int rating) {
 		System.out.println("Top programming languages:");
 
-		List<ProgrammingLanguage> programmingLanguages = programmingLanguageMapper.findTopProgrammingLanguages();
+		List<ProgrammingLanguage> programmingLanguages = programmingLanguageMapper.findTopProgrammingLanguages(5);
 		programmingLanguages.stream()
 				.map(pl -> pl.getName() + ": " + pl.getRating())
 				.forEach(System.out::println);
