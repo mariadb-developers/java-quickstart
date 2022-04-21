@@ -86,9 +86,5 @@ Run the following in the command line:
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jpa-hibernate/
 mvn package
-java -jar target/jpa-hibernate-1.0-SNAPSHOT.jar
+java -jar target/spring-boot-jpa-0.0.1-SNAPSHOT.jar
 ```
-
-## Tutorial
-
-_(Work in progress...)_
