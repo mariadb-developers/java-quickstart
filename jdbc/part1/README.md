@@ -38,8 +38,7 @@ connection.close();
   in the **pom.xml** file).
 - [Apache Maven](https://maven.apache.org).
 - MariaDB server. If you don't want to install
-  anything extra, try creating a
-  [free SkySQL account](https://mariadb.com/products/skysql)).
+  anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
 - An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
   your IDE.
 

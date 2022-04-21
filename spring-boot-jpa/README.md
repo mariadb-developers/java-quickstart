@@ -67,7 +67,7 @@ Run CRUD operations on the database using the methods of `JpaRepository`. See th
 ## Requirements
 - Java 17 or later. Previous versions should work (update the version in the **pom.xml** file).
 Apache Maven.
-- MariaDB server. If you don't want to install anything extra, try creating a free SkySQL account).
+- MariaDB server. If you don't want to install anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
 
 ## Running the app
 
