@@ -73,3 +73,7 @@ mvn package
 java -jar target/spring-boot-jooq-0.0.1-SNAPSHOT.jar
 ```
 [//]: # (insert screenshot)
+
+## Webinar
+
+Watch the webinar [Type-Safe SQL with jOOQ on SkySQL](https://go.mariadb.com/22Q3-WBN-GLBL-DBaaS-Type-safe-SQL-jOOQ-on-SkySQL-2022-04-28_Registration-LP.html).
