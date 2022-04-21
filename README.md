@@ -14,7 +14,7 @@ This repository contains examples on how to connect to [MariaDB](https://mariadb
 - [Spring Boot Data JPA](spring-boot-jpa/): Spring-based programming model for data access on top of JPA.
 - [R2DBC ➚](https://github.com/mariadb-developers/reactive-programming-java-examples): Reactive database connectivity.
 - [jOOQ](spring-boot-jooq/): Type-safe SQL queries in Java.
-- MyBatis (work in progress)
+- [MyBatis](spring-boot-mybatis): Map SQL results to Java methods in a simple way.
 
 ## Jakarta EE (Java EE)
 
