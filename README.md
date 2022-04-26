@@ -18,7 +18,7 @@ This repository contains examples on how to connect to [MariaDB](https://mariadb
 
 ## Jakarta EE (Java EE)
 
-(work in progress)
+- [Jakarta EE + GlassFish](jakarta-ee/): Jakarta EE is set of vendor-neutral specifications to build enterprise Java applications.
 
 ## Quarkus
 
