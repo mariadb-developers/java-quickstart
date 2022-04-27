@@ -87,9 +87,9 @@ FLUSH PRIVILEGES;
 
 USE jakartaee_demo;
 CREATE TABLE programming_language(
-	pl_id INT PRIMARY KEY AUTOINCREMENT,
-    pl_name VARCHAR(50) NOT NULL UNIQUE,
-    pl_rating INT
+	pl_id INT PRIMARY KEY AUTO_INCREMENT,
+	pl_name VARCHAR(50) NOT NULL UNIQUE,
+	pl_rating INT
 );
 ```
 

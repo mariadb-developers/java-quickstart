@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>microprofile</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.microprofile</groupId>
+			<artifactId>microprofile</artifactId>
+			<version>5.0</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-web-api</artifactId>
+			<version>9.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.2</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.openliberty.tools</groupId>
+				<artifactId>liberty-maven-plugin</artifactId>
+				<version>3.5.1</version>
+				<executions>
+					<execution>
+						<id>package-server</id>
+						<phase>package</phase>
+						<goals>
+							<goal>create</goal>
+							<goal>install-feature</goal>
+							<goal>deploy</goal>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<include>runnable</include>
+					<bootstrapProperties>
+						<com.ibm.ws.logging.console.log.level>info</com.ibm.ws.logging.console.log.level>
+					</bootstrapProperties>
+					<copyDependencies>
+						<dependencyGroup>
+							<location>jdbc</location>
+							<dependency>
+								<groupId>org.mariadb.jdbc</groupId>
+								<artifactId>mariadb-java-client</artifactId>
+								<version>3.0.4</version>
+							</dependency>
+						</dependencyGroup>
+					</copyDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

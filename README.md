@@ -19,6 +19,8 @@ This repository contains examples on how to connect to [MariaDB](https://mariadb
 ## Jakarta EE (Java EE)
 
 - [Jakarta EE + GlassFish](jakarta-ee/): Jakarta EE is set of vendor-neutral specifications to build enterprise Java applications.
+- [MicroProfile + Open Liberty](microprofile/): An open-source community specification for Enterprise Java microservices.
+
 
 ## Quarkus
 

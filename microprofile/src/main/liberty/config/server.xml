@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="Microprofile with MariaDB demo">
+
+	<featureManager>
+		<feature>microProfile-5.0</feature>
+		<feature>webProfile-9.1</feature>
+	</featureManager>
+
+	<httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443" />
+
+	<webApplication location="${project.name}.war" contextRoot="${app.context.root}">
+		<classloader apiTypeVisibility="+third-party" />
+	</webApplication>
+
+	<library id="jdbcLib">
+		<fileset dir="jdbc" includes="*.jar"/>
+	</library>
+
+	<dataSource id="DefaultDataSource" jndiName="jdbc/mariadb-database" type="java.sql.Driver">
+		<jdbcDriver libraryRef="jdbcLib"/>
+		<properties
+				URL="jdbc:mariadb://localhost:3306/microprofile_demo"
+				user="user"
+				password="password"
+		/>
+	</dataSource>
+
+</server>
