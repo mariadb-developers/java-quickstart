@@ -33,7 +33,7 @@ Define a Persistence Unit:
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="eclipselink.target-database" value="MySQL"/> <!-- EclipseLink JPA (default JPA implementation in Glassfish) requires this -->
-	</properties>
+		</properties>
 	</persistence-unit>
 </persistence>
 ```

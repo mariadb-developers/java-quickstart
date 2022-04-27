@@ -1,9 +1,9 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 	<persistence-unit name="microprofile-demo" transaction-type="JTA">
-        <jta-data-source>jdbc/mariadb-database</jta-data-source> <!-- Use the same name in the application server -->
+		<jta-data-source>jdbc/mariadb-database</jta-data-source> <!-- Use the same name in the application server -->
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties>
-			<property name="eclipselink.target-database" value="MySQL"/> <!-- EclipseLink JPA (default JPA implementation in Open Liberty) requires this -->
-        </properties>
-    </persistence-unit>
+		<properties>
+			<property name="eclipselink.target-database" value="MySQL" /> <!-- EclipseLink JPA (default JPA implementation in Open Liberty) requires this -->
+		</properties>
+	</persistence-unit>
 </persistence>
