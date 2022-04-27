@@ -29,12 +29,12 @@ Define a Persistence Unit:
 ```xml
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 	<persistence-unit name="microprofile-demo" transaction-type="JTA">
-        <jta-data-source>jdbc/mariadb-database</jta-data-source>
+	<jta-data-source>jdbc/mariadb-database</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties>
+		<properties>
 			<property name="eclipselink.target-database" value="MySQL"/> <!-- EclipseLink JPA (default JPA implementation in Glassfish) requires this -->
-        </properties>
-    </persistence-unit>
+	</properties>
+	</persistence-unit>
 </persistence>
 ```
 
@@ -95,9 +95,9 @@ Configure the database connection in the **server.xml** file:
 <dataSource id="DefaultDataSource" jndiName="jdbc/mariadb-database" type="java.sql.Driver">
 	<jdbcDriver libraryRef="jdbcLib"/>
 	<properties
-			URL="jdbc:mariadb://localhost:3306/microprofile_demo"
-			user="user"
-			password="password"
+		URL="jdbc:mariadb://localhost:3306/microprofile_demo"
+		user="user"
+		password="password"
 	/>
 </dataSource>
 ```
