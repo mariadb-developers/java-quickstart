@@ -22,8 +22,8 @@ Define a Persistence Unit:
 ```xml
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 	<persistence-unit name="jakarta-ee-demo" transaction-type="JTA">
-        <jta-data-source>mariadb-database</jta-data-source>
-    </persistence-unit>
+		<jta-data-source>mariadb-database</jta-data-source>
+	</persistence-unit>
 </persistence>
 ```
 
@@ -35,16 +35,16 @@ Implement a JPA Entity and define a named query ([JPQL](https://jakarta.ee/speci
 @NamedQuery(name = "topProgrammingLanguages", query = "from ProgrammingLanguage pl where pl.rating > :rating")
 public class ProgrammingLanguage {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pl_id")
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pl_id")
+	private Integer id;
 
-    @Column(name = "pl_name")
-    private String name;
+	@Column(name = "pl_name")
+	private String name;
 
-    @Column(name = "pl_rating")
-    private Integer rating;
+	@Column(name = "pl_rating")
+	private Integer rating;
 
 	... equals, hashCode, getters and setters ...
 
