@@ -110,16 +110,16 @@ Implement a JPA Entity and define a named query ([JPQL](https://jakarta.ee/speci
 @NamedQuery(name = "topProgrammingLanguages", query = "from ProgrammingLanguage pl where pl.rating > :rating")
 public class ProgrammingLanguage {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pl_id")
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pl_id")
+	private Integer id;
 
-    @Column(name = "pl_name")
-    private String name;
+	@Column(name = "pl_name")
+	private String name;
 
-    @Column(name = "pl_rating")
-    private Integer rating;
+	@Column(name = "pl_rating")
+	private Integer rating;
 
 	... equals, hashCode, getters and setters ...
 
