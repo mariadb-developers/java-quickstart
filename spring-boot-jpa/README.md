@@ -9,15 +9,15 @@ This Maven project shows the minimal configuration needed to connect to MariaDB 
 Add the the Spring Data JPA dependency and the [MariaDB JDBC Driver](https://mariadb.com/docs/clients/mariadb-connectors/connector-j/):
 
 ```xml
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
 
-		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-		</dependency>
+<dependency>
+	<groupId>org.mariadb.jdbc</groupId>
+	<artifactId>mariadb-java-client</artifactId>
+</dependency>
 ```
 
 Configure the database connection in the **application.properties** file:
