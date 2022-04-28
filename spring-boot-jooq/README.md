@@ -77,4 +77,4 @@ java -jar target/spring-boot-jooq-0.0.1-SNAPSHOT.jar
 
 Watch the webinar [Type-Safe SQL with jOOQ on SkySQL](https://go.mariadb.com/22Q3-WBN-GLBL-DBaaS-Type-safe-SQL-jOOQ-on-SkySQL-2022-04-28_Registration-LP.html).
 
-Also check out this repository which uses the [Sakila database](https://www.jooq.org/sakila) and adds [FlyWay](https://flywaydb.org/).
+Also check out [this repository](https://github.com/simasch/jooq-mariadb) which uses the [Sakila database](https://www.jooq.org/sakila) and adds [FlyWay](https://flywaydb.org/).
