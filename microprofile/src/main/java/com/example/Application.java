@@ -53,5 +53,5 @@ public class Application {
 				.map(pl -> pl.getName() + ": " + pl.getRating())
 				.forEach(System.out::println);
 	}
-	
+
 }

@@ -13,16 +13,12 @@
 	</webApplication>
 
 	<library id="jdbcLib">
-		<fileset dir="jdbc" includes="*.jar"/>
+		<fileset dir="jdbc" includes="*.jar" />
 	</library>
 
 	<dataSource id="DefaultDataSource" jndiName="jdbc/mariadb-database" type="java.sql.Driver">
-		<jdbcDriver libraryRef="jdbcLib"/>
-		<properties
-				URL="jdbc:mariadb://localhost:3306/microprofile_demo"
-				user="user"
-				password="password"
-		/>
+		<jdbcDriver libraryRef="jdbcLib" />
+		<properties URL="jdbc:mariadb://localhost:3306/microprofile_demo" user="user" password="password" />
 	</dataSource>
 
 </server>

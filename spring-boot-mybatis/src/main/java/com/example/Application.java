@@ -38,7 +38,7 @@ public class Application {
 	private void createProgrammingLanguages() {
 		System.out.println("Creating programming languages...");
 		Arrays.stream("Java,C++,C#,JavaScript,Rust,Go,Python,PHP".split(","))
-				.forEach(name -> programmingLanguageMapper.insert(name, (int)(Math.random() * ( 10 - 3 + 1)) + 3));
+				.forEach(name -> programmingLanguageMapper.insert(name, (int) (Math.random() * (10 - 3 + 1)) + 3));
 	}
 
 	private void printTopProgrammingLanguages(int rating) {

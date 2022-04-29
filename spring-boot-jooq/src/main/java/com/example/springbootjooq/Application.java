@@ -48,7 +48,7 @@ public class Application {
 				.forEach(name -> {
 					dslContext.insertInto(PROGRAMMING_LANGUAGE)
 							.columns(PROGRAMMING_LANGUAGE.NAME, PROGRAMMING_LANGUAGE.RATING)
-							.values(name, (int)(Math.random() * ( 10 - 3 + 1)) + 3)
+							.values(name, (int) (Math.random() * (10 - 3 + 1)) + 3)
 							.execute();
 				});
 	}

@@ -27,41 +27,40 @@ import java.util.List;
  */
 public class Service {
 
-    private static Service instance;
+	private static Service instance;
 
-    private DataSource dataSource;
+	private DataSource dataSource;
 
-    private Service() throws SQLException {
-        // First try with a DataSource without pooling:
-        MariaDbDataSource dataSource = new MariaDbDataSource();
-        // That should fail (SQLException: too many connections)
-        // Try now commenting the previous executable line
-        // and using the following DataSource that supports pooling:
-        //MariaDbPoolDataSource dataSource = new MariaDbPoolDataSource();
-        // That should work!
-        dataSource.setUrl("jdbc:mariadb://localhost:3306/jdbc_demo");
-        dataSource.setUser("user");
-        dataSource.setPassword("password");
-        this.dataSource = dataSource;
-    }
+	private Service() throws SQLException {
+		// First try with a DataSource without pooling:
+		MariaDbDataSource dataSource = new MariaDbDataSource();
+		// That should fail (SQLException: too many connections)
+		// Try now commenting the previous executable line
+		// and using the following DataSource that supports pooling:
+		// MariaDbPoolDataSource dataSource = new MariaDbPoolDataSource();
+		// That should work!
+		dataSource.setUrl("jdbc:mariadb://localhost:3306/jdbc_demo");
+		dataSource.setUser("user");
+		dataSource.setPassword("password");
+		this.dataSource = dataSource;
+	}
 
-    public static synchronized Service getInstance() throws SQLException {
-        return instance == null ? instance = new Service() : instance;
-    }
+	public static synchronized Service getInstance() throws SQLException {
+		return instance == null ? instance = new Service() : instance;
+	}
 
-    public List<String> getAllProgrammingLanguages() throws SQLException {
-        var list = new ArrayList<String>();
-        try (Connection connection = dataSource.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement(
-                    "SELECT name FROM programming_language"
-            )) {
-                ResultSet resultSet = statement.executeQuery();
-                while (resultSet.next()) {
-                    list.add(resultSet.getString("name"));
-                }
-            }
-        }
-        return list;
-    }
+	public List<String> getAllProgrammingLanguages() throws SQLException {
+		var list = new ArrayList<String>();
+		try (Connection connection = dataSource.getConnection()) {
+			try (PreparedStatement statement = connection.prepareStatement(
+					"SELECT name FROM programming_language")) {
+				ResultSet resultSet = statement.executeQuery();
+				while (resultSet.next()) {
+					list.add(resultSet.getString("name"));
+				}
+			}
+		}
+		return list;
+	}
 
 }

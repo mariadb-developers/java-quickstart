@@ -14,26 +14,26 @@ import java.util.stream.IntStream;
  */
 public class Application {
 
-    public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(200);
+	public static void main(String[] args) throws InterruptedException {
+		ExecutorService executorService = Executors.newFixedThreadPool(200);
 
-        IntStream.range(0, 1000)
-                .mapToObj(i -> (Runnable) () -> requestService())
-                .forEach(executorService::submit);
+		IntStream.range(0, 1000)
+				.mapToObj(i -> (Runnable) () -> requestService())
+				.forEach(executorService::submit);
 
-        executorService.shutdown();
-        executorService.awaitTermination(1, TimeUnit.MINUTES);
-    }
+		executorService.shutdown();
+		executorService.awaitTermination(1, TimeUnit.MINUTES);
+	}
 
-    public static void requestService() {
-        try {
-            Service service = Service.getInstance();
-            List<String> list = service.getAllProgrammingLanguages();
-            list.forEach(System.out::println);
+	public static void requestService() {
+		try {
+			Service service = Service.getInstance();
+			List<String> list = service.getAllProgrammingLanguages();
+			list.forEach(System.out::println);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
