@@ -122,6 +122,10 @@ In the JDBC Connection Pool list, click the newly created pool, select the **Add
  * **user**: `user`
  * **password**: `password`
 
+> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
+> 
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+
 Go to **Resources > JDBC > JDBC Resources**. Click **New** and fill in the following details:
 
 * **JNDI Name**: `mariadb-database`

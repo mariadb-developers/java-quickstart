@@ -29,6 +29,10 @@ spring.datasource.username=user
 spring.datasource.password=password
 ```
 
+> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
+> 
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+
 Autowire a `DSLContext` and use it to run SQL statements:
 
 ```java
