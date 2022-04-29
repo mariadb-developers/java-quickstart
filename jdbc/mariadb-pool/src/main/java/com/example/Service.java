@@ -34,15 +34,24 @@ public class Service {
 	private Service() throws SQLException {
 		// First try with a DataSource without pooling:
 		MariaDbDataSource dataSource = new MariaDbDataSource();
-		// That should fail (SQLException: too many connections)
-		// Try now commenting the previous executable line
-		// and using the following DataSource that supports pooling:
-		// MariaDbPoolDataSource dataSource = new MariaDbPoolDataSource();
-		// That should work!
+		/*
+		 * That should fail (SQLException: too many connections)
+		 * Try now commenting the previous executable line
+		 * and using the following DataSource that supports pooling:
+		 * MariaDbPoolDataSource dataSource = new MariaDbPoolDataSource();
+		 * That should work!
+		 */
 		dataSource.setUrl("jdbc:mariadb://localhost:3306/jdbc_demo");
 		dataSource.setUser("user");
 		dataSource.setPassword("password");
 		this.dataSource = dataSource;
+		/*
+		 * If you are using MariaDB SkySQL (https://mariadb.com/products/skysql),
+		 * enable SSL and specify the path to the CA chain file that you can download
+		 * from the SkySQL Portal (https://cloud.mariadb.com):
+		 * jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/jdbc_demo?useSsl=true&
+		 * serverSslCert=/path/to/your/skysql_chain.pem
+		 */
 	}
 
 	public static synchronized Service getInstance() throws SQLException {

@@ -102,6 +102,13 @@ public class Application {
 				"jdbc:mariadb://localhost:3306/jdbc_demo",
 				"user", "password");
 		System.out.println("Connection valid: " + connection.isValid(5));
+		/*
+		 * If you are using MariaDB SkySQL (https://mariadb.com/products/skysql),
+		 * enable SSL and specify the path to the CA chain file that you can download
+		 * from the SkySQL Portal (https://cloud.mariadb.com):
+		 * jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/jdbc_demo?useSsl=true&
+		 * serverSslCert=/path/to/your/skysql_chain.pem
+		 */
 	}
 
 	private static void closeDatabaseConnection() throws SQLException {

@@ -5,6 +5,12 @@
 			<property name="jakarta.persistence.jdbc.user" value="user" />
 			<property name="jakarta.persistence.jdbc.password" value="password" />
 			<property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+			<!--
+			If you are using MariaDB SkySQL (https://mariadb.com/products/skysql),
+			enable SSL and specify the path to the CA chain file that you can download
+			from the SkySQL Portal (https://cloud.mariadb.com):
+				jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/jpa_demo?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem	
+			-->
 		</properties>
 	</persistence-unit>
 </persistence>
