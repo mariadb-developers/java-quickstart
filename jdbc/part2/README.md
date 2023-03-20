@@ -49,12 +49,12 @@ try (PreparedStatement statement = connection.prepareStatement("""
 Prepare the database:
 
 ```sql
-CREATE DATABASE jdbc_demo;
+CREATE DATABASE demo;
 CREATE USER 'user'@'%';
-GRANT ALL ON jdbc_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
+GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'password';
 FLUSH PRIVILEGES;
 
-USE jdbc_demo;
+USE demo;
 CREATE TABLE programming_language(
     name VARCHAR(50) NOT NULL UNIQUE,
     rating INT
