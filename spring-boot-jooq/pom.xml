@@ -77,7 +77,7 @@
 					<generator>
 						<database>
 							<name>org.jooq.meta.mariadb.MariaDBDatabase</name>
-							<inputSchema>jdbc_demo</inputSchema>
+							<inputSchema>demo</inputSchema>
 						</database>
 						<target>
 							<packageName>com.example</packageName>
