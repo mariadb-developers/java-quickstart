@@ -95,11 +95,11 @@ Alternatively, you can use any database client compatible with MariaDB.
 Execute the following SQL statements to create a user for the JakartaEE application, a database (or schema) and a table:
 
 ```sql
-CREATE DATABASE jakartaee_demo;
+CREATE DATABASE demo;
 CREATE USER 'user'@'%' IDENTIFIED BY 'Password123!';
-GRANT SELECT, INSERT, UPDATE, DELETE ON jakartaee_demo.* TO 'user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON demo.* TO 'user'@'%';
 
-USE jakartaee_demo;
+USE demo;
 CREATE TABLE programming_language(
 	pl_id INT PRIMARY KEY AUTO_INCREMENT,
 	pl_name VARCHAR(50) NOT NULL UNIQUE,
@@ -134,13 +134,13 @@ Click **Finish**.
 
 In the JDBC Connection Pool list, click on **MariaDB**, select the **Additional Properties** tab, and add the following properties using the **Add Property** button:
 
- * **url**: `jdbc:mariadb://127.0.0.1:3306/jakartaee_demo`
+ * **url**: `jdbc:mariadb://127.0.0.1:3306/demo`
  * **user**: `user`
  * **password**: `Password123!`
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:3306/jakartaee_demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:3306/demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Go to **Resources > JDBC > JDBC Resources**. Click **New** and fill in the following details:
 
@@ -172,5 +172,5 @@ mariadb-shell --dsn mariadb://user:'Password123!'@127.0.0.1
 Run the following query:
 
 ```SQL
-SELECT * FROM jakartaee_demo.programming_languages;
+SELECT * FROM demo.programming_languages;
 ```
