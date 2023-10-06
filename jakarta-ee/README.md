@@ -73,7 +73,7 @@ List<ProgrammingLanguage> programmingLanguages = query.getResultList();
 - [Eclipse GlassFish](https://glassfish.org/download.html) 7.0.9 or later
 - MariaDB server ([Enterprise](https://mariadb.com/products/enterprise/) or [Community](https://mariadb.com/products/community-server/))
 - [MariaDB Connector/J](https://mariadb.com/downloads/connectors/connectors-data-access/java8-connector) 3.2.0 or later
-- An SQL client tool like [Mariadb Shell](https://mariadb.com/downloads/tools/), DBeaver, or an [SQL integration](https://www.youtube.com/watch?v=rJYUTxD-2-M) for your IDE
+- An SQL client tool like [MariaDB Shell](https://mariadb.com/downloads/tools/), DBeaver, or an [SQL integration](https://www.youtube.com/watch?v=rJYUTxD-2-M) for your IDE
 
 ## Preparing the database
 
