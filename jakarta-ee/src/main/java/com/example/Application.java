@@ -25,7 +25,7 @@ public class Application {
 	public void run() {
 		deleteProgrammingLanguages();
 		createProgrammingLanguages();
-		printPupularProgrammingLanguages();
+		printPopularProgrammingLanguages();
 	}
 
 	@Transactional
@@ -44,7 +44,7 @@ public class Application {
 				.forEach(entityManager::persist);
 	}
 
-	public void printPupularProgrammingLanguages() {
+	public void printPopularProgrammingLanguages() {
 		log.info("Printing popular programming languages...");
 		TypedQuery<ProgrammingLanguage> query = entityManager.createNamedQuery(
 				"popularProgrammingLanguages", ProgrammingLanguage.class);
