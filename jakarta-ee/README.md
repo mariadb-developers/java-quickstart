@@ -107,7 +107,7 @@ CREATE TABLE programming_language(
 );
 ```
 
-## Building and deploying the application
+## Configuring Glassfish
 
 [Download MariaDB Connector/J](https://mariadb.com/downloads/connectors/connectors-data-access/java8-connector) (select Java8+ connector) and place the JAR in the **lib** directory of the fault GlassFish domain (replace `[GLASSFISH_HOME]` with the directory in which your GlassFish installation resides):
 
@@ -148,6 +148,8 @@ Go to **Resources > JDBC > JDBC Resources**. Click **New** and fill in the follo
 * **Pool Name**: `MariaDB`
 
 Click **OK**.
+
+## Building and deploying the application
 
 Build the WAR file:
 
