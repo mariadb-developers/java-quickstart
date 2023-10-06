@@ -25,7 +25,7 @@ public class Application {
 	public void run() {
 		deleteProgrammingLanguages();
 		createProgrammingLanguages();
-		printTopProgrammingLanguages();
+		printPupularProgrammingLanguages();
 	}
 
 	@Transactional
@@ -37,22 +37,26 @@ public class Application {
 	@Transactional
 	public void createProgrammingLanguages() {
 		log.info("Creating programming languages...");
-		Arrays.stream("Java,C++,C#,JavaScript,Rust,Go,Python,PHP".split(","))
+		var java = new ProgrammingLanguage("Java", 10);
+		entityManager.persist(java);
+		Arrays.stream("C++,C#,JavaScript,Rust,Go,Python,PHP".split(","))
 				.map(name -> new ProgrammingLanguage(name, (int) (Math.random() * 10)))
 				.forEach(entityManager::persist);
 	}
 
-	public void printTopProgrammingLanguages() {
-		log.info("Top programming languages:");
-
+	public void printPupularProgrammingLanguages() {
+		log.info("Printing popular programming languages...");
 		TypedQuery<ProgrammingLanguage> query = entityManager.createNamedQuery(
-				"topProgrammingLanguages", ProgrammingLanguage.class);
+				"popularProgrammingLanguages", ProgrammingLanguage.class);
 		query.setParameter("rating", 5);
 		List<ProgrammingLanguage> programmingLanguages = query.getResultList();
+		var output = new StringBuilder("Popular programming languages:");
 
 		programmingLanguages.stream()
-				.map(pl -> pl.getName() + ": " + pl.getRating())
-				.forEach(System.out::println);
+				.map(pl -> "\n" + pl.getName() + ": " + pl.getRating())
+				.forEach(output::append);
+
+		log.info(output.toString());
 	}
 
 }
