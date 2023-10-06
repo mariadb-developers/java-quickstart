@@ -68,7 +68,7 @@ List<ProgrammingLanguage> programmingLanguages = query.getResultList();
 ```
 
 ## Requirements
-- [Java 17](https://whichjdk.com/) or later. Previous versions should work (update the version in the **pom.xml** file)
+- [Java 21](https://whichjdk.com/) or later. Previous versions should work (update the version in the **pom.xml** file)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [Eclipse GlassFish](https://glassfish.org/download.html) 7.0.9 or later
 - MariaDB server ([Enterprise](https://mariadb.com/products/enterprise/) or [Community](https://mariadb.com/products/community-server/))
