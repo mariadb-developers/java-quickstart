@@ -4,7 +4,7 @@
 
 This Maven project shows the minimal configuration needed to connect to MariaDB databases using JPA in a Jakarta EE application deployed to [Eclipse GlassFish](https://glassfish.org).
 
-## LT;DR (kinda)
+## TL;DR (kinda)
 
 Add the Jakarta EE API:
 
