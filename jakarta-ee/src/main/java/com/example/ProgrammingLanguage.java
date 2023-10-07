@@ -6,7 +6,11 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "programming_language")
-@NamedQuery(name = "popularProgrammingLanguages", query = "from ProgrammingLanguage pl where pl.rating > :rating order by pl.rating desc")
+@NamedQuery(name = "popularProgrammingLanguages", query = """
+		from ProgrammingLanguage pl
+		where pl.rating > :rating
+		order by pl.rating desc
+		""")
 public class ProgrammingLanguage {
 
 	@Id
