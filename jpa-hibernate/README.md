@@ -20,7 +20,7 @@ the latest version), JPA, and Hibernate ([check](https://hibernate.org/orm/relea
 <dependency>
     <groupId>jakarta.persistence</groupId>
     <artifactId>jakarta.persistence-api</artifactId>
-    <version>3.0.0</version>
+    <version>LATEST</version>
 </dependency>
 <dependency>
     <groupId>org.hibernate</groupId>
@@ -30,7 +30,7 @@ the latest version), JPA, and Hibernate ([check](https://hibernate.org/orm/relea
 <dependency>
     <groupId>org.glassfish.jaxb</groupId>
     <artifactId>jaxb-runtime</artifactId>
-    <version>3.0.0</version>
+    <version>LATEST</version>
 </dependency>
 ```
 
@@ -100,10 +100,17 @@ Apache Maven.
 Prepare the database:
 
 ```sql
-CREATE DATABASE jpa_demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON jpa_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
+CREATE DATABASE demo;
+CREATE USER 'user'@'%' IDENTIFIED BY 'Password123!';
+GRANT SELECT, INSERT, UPDATE, DELETE ON demo.* TO 'user'@'%';
+GRANT DROP, CREATE on demo.* TO 'user'@'%';
 
+USE demo;
+CREATE TABLE programming_language(
+	pl_id INT PRIMARY KEY AUTO_INCREMENT,
+	pl_name VARCHAR(50) NOT NULL UNIQUE,
+	pl_rating INT
+);
 ```
 
 Run the following in the command line:

@@ -2,8 +2,5 @@
 	<persistence-unit name="microprofile-demo" transaction-type="JTA">
 		<jta-data-source>jdbc/mariadb-database</jta-data-source> <!-- Use the same name in the application server -->
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
-			<property name="eclipselink.target-database" value="MySQL" /> <!-- EclipseLink JPA (default JPA implementation in Open Liberty) requires this -->
-		</properties>
 	</persistence-unit>
 </persistence>

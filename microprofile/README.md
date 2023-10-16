@@ -85,7 +85,7 @@ Add the MicroProfile and Jakarta EE web profile features in the **server.xml** f
 </featureManager>
 ```
 
-Configure the database connection in the **server.xml** file:
+Configure the database connection in the **src/main/liberty/config/server.xml** file:
 
 ```xml
 <library id="jdbcLib">
