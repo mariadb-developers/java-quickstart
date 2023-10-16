@@ -12,14 +12,14 @@ Add the MicroProfile and Jakarta EE web profile APIs:
 <dependency>
 	<groupId>org.eclipse.microprofile</groupId>
 	<artifactId>microprofile</artifactId>
-	<version>5.0</version>
+	<version>LATEST</version>
 	<type>pom</type>
 	<scope>provided</scope>
 </dependency>
 <dependency>
 	<groupId>jakarta.platform</groupId>
 	<artifactId>jakarta.jakartaee-web-api</artifactId>
-	<version>9.1.0</version>
+	<version>LATEST</version>
 	<scope>provided</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add the Liberty Maven plug-in in the **pom.xml** file:
 <plugin>
 	<groupId>io.openliberty.tools</groupId>
 	<artifactId>liberty-maven-plugin</artifactId>
-	<version>3.5.1</version>
+	<version>LATEST</version>
 	<executions>
 		<execution>
 			<id>package-server</id>
@@ -68,7 +68,7 @@ Add the Liberty Maven plug-in in the **pom.xml** file:
 				<dependency>
 					<groupId>org.mariadb.jdbc</groupId>
 					<artifactId>mariadb-java-client</artifactId>
-					<version>3.0.4</version>
+					<version>LATEST</version>
 				</dependency>
 			</dependencyGroup>
 		</copyDependencies>
@@ -80,8 +80,8 @@ Add the MicroProfile and Jakarta EE web profile features in the **server.xml** f
 
 ```xml
 <featureManager>
-	<feature>microProfile-5.0</feature>
-	<feature>webProfile-9.1</feature>
+	<feature>microProfile-LATEST</feature>
+	<feature>webProfile-LATEST</feature>
 </featureManager>
 ```
 
@@ -95,7 +95,7 @@ Configure the database connection in the **src/main/liberty/config/server.xml** 
 <dataSource id="DefaultDataSource" jndiName="jdbc/mariadb-database" type="java.sql.Driver">
 	<jdbcDriver libraryRef="jdbcLib"/>
 	<properties
-		URL="jdbc:mariadb://localhost:3306/microprofile_demo"
+		URL="jdbc:mariadb://localhost:3306/demo"
 		user="user"
 		password="Password123!"
 	/>
@@ -104,7 +104,7 @@ Configure the database connection in the **src/main/liberty/config/server.xml** 
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/microprofile_demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Implement a JPA Entity and define a named query ([JPQL](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1.html#a4665)):
 
@@ -147,11 +147,11 @@ List<ProgrammingLanguage> programmingLanguages = query.getResultList();
 ```
 
 ## Requirements
-- Java 17 or later. Previous versions should work (update the version in the pom.xml file).
+- Java 21 or later. Previous versions should work (update the version in the **pom.xml** file).
 Apache Maven.
 - Eclipse GlassFish 6.2.5 or later.
-- MariaDB server. If you don't want to install anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
-- MariaDB Connector/J 3.0.4 or later.
+- MariaDB server.
+- MariaDB Connector/J 3.2.0 or later.
 - An SQL client tool like mariadb, DBeaver, or an SQL integration for your IDE.
 
 ## Running the app
