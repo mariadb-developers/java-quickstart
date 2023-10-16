@@ -45,7 +45,7 @@ Configure a *Persistence Unit* with the database connection details:
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/database_name"/>
             <property name="jakarta.persistence.jdbc.user" value="user"/>
-            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.password" value="Password123!"/>
         </properties>
     </persistence-unit>
 </persistence>
@@ -53,7 +53,7 @@ Configure a *Persistence Unit* with the database connection details:
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Create an `EntityManagerFactory` using the configured Persistence Unit name:
 
@@ -103,7 +103,7 @@ Prepare the database:
 CREATE DATABASE jpa_demo;
 CREATE USER 'user'@'%';
 GRANT ALL ON jpa_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES;
+
 ```
 
 Run the following in the command line:

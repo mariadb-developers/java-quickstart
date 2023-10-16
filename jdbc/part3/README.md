@@ -18,14 +18,14 @@ Add HikariCP in the **pom.xml** file ([check](https://search.maven.org/artifact/
 Configuration file (**src/main/resources/database.properties**):
 
 ```properties
-jdbcUrl=jdbc:mariadb://localhost:3306/database_name
+jdbcUrl=jdbc:mariadb://127.0.0.1:3306/database_name
 dataSource.username=user
-dataSource.password=password
+dataSource.password=Password123!
 ```
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Create a `DataSource` at application start:
 
@@ -66,7 +66,7 @@ Prepare the database:
 CREATE DATABASE demo;
 CREATE USER 'user'@'%';
 GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES;
+
 
 USE demo;
 CREATE TABLE programming_language(

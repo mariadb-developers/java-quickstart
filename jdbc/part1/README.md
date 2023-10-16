@@ -22,13 +22,13 @@ Open the connection (alternatively use a try-catch block to close the connection
 ```java
 Connection connection = DriverManager.getConnection(
         "jdbc:mariadb://localhost:3306/database_name",
-        "user", "password"
+        "user", "Password123!"
 );
 ```
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Close the connection (if not using a try-catch block):
 
@@ -53,8 +53,7 @@ Prepare the database:
 ```sql
 CREATE DATABASE demo;
 CREATE USER 'user'@'%';
-GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES;
+GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'Password123!';
 ```
 
 Run the following from the command line:
@@ -63,7 +62,7 @@ Run the following from the command line:
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jdbc/part1/
 mvn package
-java -jar  java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
+java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
 ```
 
 Screenshot of the output:

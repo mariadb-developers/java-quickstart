@@ -21,8 +21,8 @@ public class Application {
 	 *
 	 * <pre>
 	 * CREATE TABLE programming_language(
-	 *     name VARCHAR(50) NOT NULL UNIQUE,
-	 *     Rating INT
+	 *     pl_name VARCHAR(50) NOT NULL UNIQUE,
+	 *     pl_rating INT
 	 * );
 	 * </pre>
 	 *
@@ -50,7 +50,7 @@ public class Application {
 	private static void createData(String name, int rating) throws SQLException {
 		try (Connection connection = dataSource.getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement("""
-					    INSERT INTO programming_language(name, rating)
+					    INSERT INTO programming_language(pl_name, pl_rating)
 					    VALUES (?, ?)
 					""")) {
 				statement.setString(1, name);
@@ -64,16 +64,16 @@ public class Application {
 	private static void readData() throws SQLException {
 		try (Connection connection = dataSource.getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement("""
-					    SELECT name, rating
+					    SELECT pl_name, pl_rating
 					    FROM programming_language
-					    ORDER BY rating DESC
+					    ORDER BY pl_rating DESC
 					""")) {
 				try (ResultSet resultSet = statement.executeQuery()) {
 					boolean empty = true;
 					while (resultSet.next()) {
 						empty = false;
-						String name = resultSet.getString("name");
-						int rating = resultSet.getInt("rating");
+						String name = resultSet.getString("pl_name");
+						int rating = resultSet.getInt("pl_rating");
 						System.out.println("\t> " + name + ": " + rating);
 					}
 					if (empty) {
@@ -88,8 +88,8 @@ public class Application {
 		try (Connection connection = dataSource.getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement("""
 					    UPDATE programming_language
-					    SET rating = ?
-					    WHERE name = ?
+					    SET pl_rating = ?
+					    WHERE pl_name = ?
 					""")) {
 				statement.setInt(1, newRating);
 				statement.setString(2, name);
@@ -103,7 +103,7 @@ public class Application {
 		try (Connection connection = dataSource.getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement("""
 					    DELETE FROM programming_language
-					    WHERE name LIKE ?
+					    WHERE pl_name LIKE ?
 					""")) {
 				statement.setString(1, nameExpression);
 				int rowsDeleted = statement.executeUpdate();

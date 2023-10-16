@@ -33,7 +33,7 @@ spring.jpa.show-sql=true
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/spring_demo?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/spring_demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Create an `Entity`:
 
@@ -81,7 +81,7 @@ Prepare the database:
 CREATE DATABASE jpa_demo;
 CREATE USER 'user'@'%';
 GRANT ALL ON jpa_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES;
+
 ```
 
 Run the following in the command line:

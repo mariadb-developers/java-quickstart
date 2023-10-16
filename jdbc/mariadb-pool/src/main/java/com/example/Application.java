@@ -15,14 +15,14 @@ import java.util.stream.IntStream;
 public class Application {
 
 	public static void main(String[] args) throws InterruptedException {
-		ExecutorService executorService = Executors.newFixedThreadPool(200);
-
-		IntStream.range(0, 1000)
-				.mapToObj(i -> (Runnable) () -> requestService())
-				.forEach(executorService::submit);
-
-		executorService.shutdown();
-		executorService.awaitTermination(1, TimeUnit.MINUTES);
+		try(ExecutorService executorService = Executors.newFixedThreadPool(200)) {
+			IntStream.range(0, 1000)
+					.mapToObj(i -> (Runnable) () -> requestService())
+					.forEach(executorService::submit);
+	
+			executorService.shutdown();
+			executorService.awaitTermination(1, TimeUnit.MINUTES);
+		}
 	}
 
 	public static void requestService() {

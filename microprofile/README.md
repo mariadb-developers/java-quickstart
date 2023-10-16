@@ -97,14 +97,14 @@ Configure the database connection in the **server.xml** file:
 	<properties
 		URL="jdbc:mariadb://localhost:3306/microprofile_demo"
 		user="user"
-		password="password"
+		password="Password123!"
 	/>
 </dataSource>
 ```
 
 > If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
 > 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/microprofile_demo?useSsl=true&serverSslCert=/path/to/your/skysql_chain.pem`
+> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/microprofile_demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Implement a JPA Entity and define a named query ([JPQL](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1.html#a4665)):
 
@@ -162,7 +162,7 @@ Prepare the database:
 CREATE DATABASE microprofile_demo;
 CREATE USER 'user'@'%';
 GRANT ALL ON microprofile_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES;
+
 
 USE microprofile_demo;
 CREATE TABLE programming_language(

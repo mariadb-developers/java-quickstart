@@ -13,8 +13,8 @@ public class Application {
 	 *
 	 * <pre>
 	 * CREATE TABLE programming_language(
-	 *     name VARCHAR(50) NOT NULL UNIQUE,
-	 *     Rating INT
+	 *     pl_name VARCHAR(50) NOT NULL UNIQUE,
+	 *     pl_rating INT
 	 * );
 	 * </pre>
 	 *
@@ -41,7 +41,7 @@ public class Application {
 
 	private static void createData(String name, int rating) throws SQLException {
 		try (PreparedStatement statement = connection.prepareStatement("""
-				    INSERT INTO programming_language(name, rating)
+				    INSERT INTO programming_language(pl_name, pl_rating)
 				    VALUES (?, ?)
 				""")) {
 			statement.setString(1, name);
@@ -53,16 +53,16 @@ public class Application {
 
 	private static void readData() throws SQLException {
 		try (PreparedStatement statement = connection.prepareStatement("""
-				    SELECT name, rating
+				    SELECT pl_name, pl_rating
 				    FROM programming_language
-				    ORDER BY rating DESC
+				    ORDER BY pl_rating DESC
 				""")) {
 			try (ResultSet resultSet = statement.executeQuery()) {
 				boolean empty = true;
 				while (resultSet.next()) {
 					empty = false;
-					String name = resultSet.getString("name");
-					int rating = resultSet.getInt("rating");
+					String name = resultSet.getString("pl_name");
+					int rating = resultSet.getInt("pl_rating");
 					System.out.println("\t> " + name + ": " + rating);
 				}
 				if (empty) {
@@ -75,8 +75,8 @@ public class Application {
 	private static void updateData(String name, int newRating) throws SQLException {
 		try (PreparedStatement statement = connection.prepareStatement("""
 				    UPDATE programming_language
-				    SET rating = ?
-				    WHERE name = ?
+				    SET pl_rating = ?
+				    WHERE pl_name = ?
 				""")) {
 			statement.setInt(1, newRating);
 			statement.setString(2, name);
@@ -88,7 +88,7 @@ public class Application {
 	private static void deleteData(String nameExpression) throws SQLException {
 		try (PreparedStatement statement = connection.prepareStatement("""
 				    DELETE FROM programming_language
-				    WHERE name LIKE ?
+				    WHERE pl_name LIKE ?
 				""")) {
 			statement.setString(1, nameExpression);
 			int rowsDeleted = statement.executeUpdate();
@@ -100,13 +100,13 @@ public class Application {
 		System.out.println("Connecting to the database...");
 		connection = DriverManager.getConnection(
 				"jdbc:mariadb://localhost:3306/demo",
-				"user", "password");
+				"user", "Password123!");
 		System.out.println("Connection valid: " + connection.isValid(5));
 		/*
 		 * If you are using MariaDB SkySQL (https://mariadb.com/products/skysql),
 		 * enable SSL and specify the path to the CA chain file that you can download
 		 * from the SkySQL Portal (https://cloud.mariadb.com):
-		 * jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/demo?useSsl=true&
+		 * jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/demo?sslMode=verify-ca&
 		 * serverSslCert=/path/to/your/skysql_chain.pem
 		 */
 	}

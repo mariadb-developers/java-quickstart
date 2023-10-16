@@ -52,7 +52,7 @@ Prepare the database:
 CREATE DATABASE demo;
 CREATE USER 'user'@'%';
 GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES;
+
 
 USE demo;
 CREATE TABLE programming_language(
