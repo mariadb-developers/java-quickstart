@@ -10,11 +10,10 @@ Change `Service` constructor to use a `MariaDbPoolDataSource` and run the app ag
 
 ## Requirements
 
-- Java 17 or later. Previous versions should work (update the version
+- Java 21 or later. Previous versions should work (update the version
   in the **pom.xml** file).
 - [Apache Maven](https://maven.apache.org).
-- MariaDB server. If you don't want to install
-  anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
+- MariaDB server.
 - An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
   your IDE.
 

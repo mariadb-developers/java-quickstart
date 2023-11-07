@@ -46,35 +46,39 @@ Apache Maven
 - MariaDB server
 - An SQL client tool like mariadb, DBeaver, or an SQL integration for your IDE
 
+## Preparing the database
+
+See the instructions [here](../README.md).
+
 ## Running the app
-
-Prepare the database:
-
-```sql
-CREATE DATABASE demo;
-CREATE USER 'user'@'%' IDENTIFIED BY 'Password123!';
-GRANT SELECT, INSERT, UPDATE, DELETE, DROP ON demo.* TO 'user'@'%';
-
-USE demo;
-CREATE TABLE programming_language(
-	pl_id INT PRIMARY KEY AUTO_INCREMENT,
-	pl_name VARCHAR(50) NOT NULL UNIQUE,
-	pl_rating INT
-);
-```
 
 Run the following in the command line:
 
-```
+```Shell
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/spring-boot-jooq/
 mvn package
 java -jar target/spring-boot-jooq-0.0.1-SNAPSHOT.jar
 ```
-[//]: # (insert screenshot)
+
+## Check the output
+
+You should see the output in the terminal.
+
+You can also connect to the database and see the data in the `programming_language` table:
+
+```shell
+mariadb-shell --dsn mariadb://user:'Password123!'@127.0.0.1
+```
+
+Run the following query:
+
+```SQL
+SELECT * FROM demo.programming_languages;
+```
 
 ## Webinar
 
-Watch the webinar [Type-Safe SQL with jOOQ on SkySQL](https://go.mariadb.com/22Q3-WBN-GLBL-DBaaS-Type-safe-SQL-jOOQ-on-SkySQL-2022-04-28_Registration-LP.html).
+Watch the webinar [Type-Safe SQL with jOOQ](https://go.mariadb.com/22Q3-WBN-GLBL-DBaaS-Type-safe-SQL-jOOQ-on-SkySQL-2022-04-28_Registration-LP.html).
 
 Also check out [this repository](https://github.com/simasch/jooq-mariadb) which uses the [Sakila database](https://www.jooq.org/sakila) and adds [FlyWay](https://flywaydb.org/).

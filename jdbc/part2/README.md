@@ -36,38 +36,42 @@ try (PreparedStatement statement = connection.prepareStatement("""
 
 ## Requirements
 
-- Java 17 or later. Previous versions should work (update the version
+- Java 21 or later. Previous versions should work (update the version
   in the **pom.xml** file).
 - [Apache Maven](https://maven.apache.org).
-- MariaDB server. If you don't want to install
-  anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
+- MariaDB server.
 - An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
   your IDE.
 
+## Preparing the database
+
+See the instructions [here](../../README.md).
+
 ## Running the app
-
-Prepare the database:
-
-```sql
-CREATE DATABASE demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-
-
-USE demo;
-CREATE TABLE programming_language(
-    name VARCHAR(50) NOT NULL UNIQUE,
-    rating INT
-);
-```
 
 Run the following from the command line:
 
-```
+```Shell
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jdbc/part2/
 mvn package
 java -jar  java -jar target/jdbc-demo-1.0-SNAPSHOT.jar
+```
+
+## Check the output
+
+You should see the output in the terminal.
+
+You can also connect to the database and see the data in the `programming_language` table:
+
+```shell
+mariadb-shell --dsn mariadb://user:'Password123!'@127.0.0.1
+```
+
+Run the following query:
+
+```SQL
+SELECT * FROM demo.programming_languages;
 ```
 
 ## Tutorial

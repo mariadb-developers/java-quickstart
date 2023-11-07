@@ -22,6 +22,8 @@ pool included with the MariaDB JDBC driver:
 See the **README.md** files in each subdirectory to learn how to run the
 examples.
 
+See [this](../README.md) to set up the database.
+
 ## Support and Contribution
 
 Please feel free to submit PR's, issues or requests to this project

@@ -74,38 +74,10 @@ List<ProgrammingLanguage> programmingLanguages = query.getResultList();
 - [MariaDB Connector/J](https://mariadb.com/downloads/connectors/connectors-data-access/java8-connector) 3.2.0 or later
 - An SQL client tool like [MariaDB Shell](https://mariadb.com/downloads/tools/), DBeaver, or an [SQL integration](https://www.youtube.com/watch?v=rJYUTxD-2-M) for your IDE
 - MariaDB server ([Enterprise](https://mariadb.com/products/enterprise/) or [Community](https://mariadb.com/products/community-server/))
+
 ## Preparing the database
 
-If you don't have a MariaDB server running, you can easily run using [Docker](https://hub.docker.com/u/mariadb):
-
-```shell
-docker run --name mariadb -d -p 3306:3306 -e MARIADB_ROOT_PASSWORD='RootPassword123!' mariadb
-```
-
-Alternatively, you can [Download](https://mariadb.com/downloads/) and install the server directly on your OS.
-
-Connect to the database:
-
-```shell
-mariadb-shell --dsn mariadb://root:'RootPassword123!'@127.0.0.1
-```
-
-Alternatively, you can use any database client compatible with MariaDB.
-
-Execute the following SQL statements to create a user for the JakartaEE application, a database (or schema) and a table:
-
-```sql
-CREATE DATABASE demo;
-CREATE USER 'user'@'%' IDENTIFIED BY 'Password123!';
-GRANT SELECT, INSERT, UPDATE, DELETE, DROP ON demo.* TO 'user'@'%';
-
-USE demo;
-CREATE TABLE programming_language(
-	pl_id INT PRIMARY KEY AUTO_INCREMENT,
-	pl_name VARCHAR(50) NOT NULL UNIQUE,
-	pl_rating INT
-);
-```
+See the instructions [here](../README.md).
 
 ## Configuring Glassfish
 
@@ -138,10 +110,6 @@ In the JDBC Connection Pool list, click on **MariaDB**, select the **Additional 
  * **user**: `user`
  * **password**: `Password123!`
 
-> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
-> 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:3306/demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
-
 Go to **Resources > JDBC > JDBC Resources**. Click **New** and fill in the following details:
 
 * **JNDI Name**: `mariadb-database`
@@ -163,9 +131,9 @@ To deploy the WAR file to GlassFish using the Administration Console, go to **Ap
 
 ## Check the output
 
-Go to **Monitoring Data > server** and click either the **View Log Files** or **View Raw Log** button. You should be able to see log messages confirming that data was deleted, created, and read. You can also connect to the database and see the data in the `programming_language` table.
+Go to **Monitoring Data > server** and click either the **View Log Files** or **View Raw Log** button. You should be able to see log messages confirming that data was deleted, created, and read.
 
-Connect to the database:
+You can also connect to the database and see the data in the `programming_language` table:
 
 ```shell
 mariadb-shell --dsn mariadb://user:'Password123!'@127.0.0.1

@@ -19,12 +19,6 @@
 	<dataSource id="DefaultDataSource" jndiName="jdbc/mariadb-database" type="java.sql.Driver">
 		<jdbcDriver libraryRef="jdbcLib" />
 		<properties URL="jdbc:mariadb://localhost:3306/demo" user="user" password="Password123!" />
-		<!--
-		If you are using MariaDB SkySQL (https://mariadb.com/products/skysql),
-		enable SSL and specify the path to the CA chain file that you can download
-		from the SkySQL Portal (https://cloud.mariadb.com):
-			jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem   
-		-->
 	</dataSource>
 
 </server>

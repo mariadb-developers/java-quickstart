@@ -17,7 +17,7 @@ the latest version):
 </dependency>
 ```
 
-Open the connection (alternatively use a try-catch block to close the connection automatically):
+Open the connection (alternatively use `try` with resources to close the connection automatically):
 
 ```java
 Connection connection = DriverManager.getConnection(
@@ -26,11 +26,7 @@ Connection connection = DriverManager.getConnection(
 );
 ```
 
-> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
-> 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/database_name?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
-
-Close the connection (if not using a try-catch block):
+Close the connection (if not using a `try` with resources block):
 
 ```java
 connection.close();
@@ -38,27 +34,22 @@ connection.close();
 
 ## Requirements
 
-- Java 17 or later. Previous versions should work (update the version
+- Java 21 or later. Previous versions should work (update the version
   in the **pom.xml** file).
 - [Apache Maven](https://maven.apache.org).
-- MariaDB server. If you don't want to install
-  anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
+- MariaDB server.
 - An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
   your IDE.
 
+## Preparing the database
+
+See the instructions [here](../../README.md).
+
 ## Running the app
-
-Prepare the database:
-
-```sql
-CREATE DATABASE demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'Password123!';
-```
 
 Run the following from the command line:
 
-```
+```Shell
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jdbc/part1/
 mvn package

@@ -102,10 +102,6 @@ Configure the database connection in the **src/main/liberty/config/server.xml** 
 </dataSource>
 ```
 
-> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
-> 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
-
 Implement a JPA Entity and define a named query ([JPQL](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1.html#a4665)):
 
 ```Java
@@ -154,37 +150,39 @@ Apache Maven.
 - MariaDB Connector/J 3.2.0 or later.
 - An SQL client tool like mariadb, DBeaver, or an SQL integration for your IDE.
 
+## Preparing the database
+
+See the instructions [here](../README.md).
+
 ## Running the app
-
-Prepare the database:
-
-```sql
-CREATE DATABASE microprofile_demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON microprofile_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-
-
-USE microprofile_demo;
-CREATE TABLE programming_language(
-	pl_id INT PRIMARY KEY AUTO_INCREMENT,
-	pl_name VARCHAR(50) NOT NULL UNIQUE,
-	pl_rating INT
-);
-```
 
 Build the application and run it:
 
-```
+```Shell
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/microprofile/
 mvn package
 java -jar target/microprofile-1.0-SNAPSHOT.jar
 ```
 
-You should be able to see new rows in the `programming_language` table in the database as well as log messages confirming that data was deleted, created, and read.
-
 Alternatively, you can start the application in development mode which picks up the changes yo make to the code and deploys them automatically:
 
 ```
 mvn liberty:dev
+```
+
+## Check the output
+
+You should see the output in the terminal.
+
+You can also connect to the database and see the data in the `programming_language` table:
+
+```shell
+mariadb-shell --dsn mariadb://user:'Password123!'@127.0.0.1
+```
+
+Run the following query:
+
+```SQL
+SELECT * FROM demo.programming_languages;
 ```

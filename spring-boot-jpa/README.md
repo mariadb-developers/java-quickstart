@@ -24,16 +24,12 @@ Configure the database connection in the **application.properties** file:
 
 ```properties
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MariaDBDialect
-spring.datasource.url=jdbc:mariadb://localhost:3306/spring_demo
+spring.datasource.url=jdbc:mariadb://localhost:3306/demo
 spring.datasource.username=user
-spring.datasource.password=password
-spring.jpa.hibernate.ddl-auto=update
+spring.datasource.password=Password123!
+spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
 ```
-
-> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
-> 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/spring_demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
 
 Create an `Entity`:
 
@@ -69,26 +65,37 @@ public interface ProgrammingLanguageRepository extends JpaRepository<Programming
 Run CRUD operations on the database using the methods of `JpaRepository`. See the [documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories) for more details.
 
 ## Requirements
-- Java 17 or later. Previous versions should work (update the version in the **pom.xml** file).
+- Java 21 or later. Previous versions should work (update the version in the **pom.xml** file).
 Apache Maven.
-- MariaDB server. If you don't want to install anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
+- MariaDB server.
+
+## Preparing the database
+
+See the instructions [here](../README.md).
 
 ## Running the app
 
-Prepare the database:
-
-```sql
-CREATE DATABASE jpa_demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON jpa_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-
-```
-
 Run the following in the command line:
 
-```
+``` Shell
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jpa-hibernate/
 mvn package
 java -jar target/spring-boot-jpa-0.0.1-SNAPSHOT.jar
+```
+
+## Check the output
+
+You should see the output in the terminal.
+
+You can also connect to the database and see the data in the `programming_language` table:
+
+```shell
+mariadb-shell --dsn mariadb://user:'Password123!'@127.0.0.1
+```
+
+Run the following query:
+
+```SQL
+SELECT * FROM demo.programming_languages;
 ```
