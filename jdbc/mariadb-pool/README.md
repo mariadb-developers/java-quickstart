@@ -17,32 +17,23 @@ Change `Service` constructor to use a `MariaDbPoolDataSource` and run the app ag
 - An SQL client tool like `mariadb`, DBeaver, or an SQL integration for
   your IDE.
 
-## Running the app
+## Preparing the database
 
-Prepare the database:
+See the instructions [here](../../README.md).
+
+Insert some data:
 
 ```sql
-CREATE DATABASE demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON demo.* TO 'user'@'%' IDENTIFIED BY 'password';
-
-
-USE demo;
-CREATE TABLE programming_language(
-    name VARCHAR(50) NOT NULL UNIQUE,
-    rating INT
-);
-
-INSERT INTO
-    programming_language(name, rating)
+INSERT INTO demo.programming_language(name, rating)
 VALUES
     ('Java', 10),
     ('C++', 9);
 ```
 
+## Running the app
 Run the following from the command line:
 
-```
+```Shell
 git clone git@github.com:mariadb-developers/java-quickstart.git
 cd java-quickstart/jdbc/mariadb-pool/
 mvn package
