@@ -97,7 +97,7 @@ Execute the following SQL statements to create a user for the JakartaEE applicat
 ```sql
 CREATE DATABASE demo;
 CREATE USER 'user'@'%' IDENTIFIED BY 'Password123!';
-GRANT SELECT, INSERT, UPDATE, DELETE ON demo.* TO 'user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, DROP ON demo.* TO 'user'@'%';
 
 USE demo;
 CREATE TABLE programming_language(

@@ -29,10 +29,6 @@ spring.datasource.username=user
 spring.datasource.password=password
 ```
 
-> If you are using [MariaDB SkySQL](https://mariadb.com/products/skysql/), enable SSL and specify the path to the CA chain file that you can download from the [SkySQL Portal](https://cloud.mariadb.com):
-> 
-> `jdbc:mariadb://demo-db0000xxxx.mdb000xxxx.db.skysql.net:5047/jooq_demo?sslMode=verify-ca&serverSslCert=/path/to/your/skysql_chain.pem`
-
 Autowire a `DSLContext` and use it to run SQL statements:
 
 ```java
@@ -45,25 +41,25 @@ List<ProgrammingLanguageRecord> programmingLanguages = dslContext
 ```
 
 ## Requirements
-- Java 17 or later. Previous versions should work (update the version in the pom.xml file).
-Apache Maven.
-- MariaDB server. If you don't want to install anything extra, try creating a free [SkySQL account](https://cloud.mariadb.com).
-- An SQL client tool like mariadb, DBeaver, or an SQL integration for your IDE.
+- Java 21 or later. Previous versions should work (update the version in the pom.xml file).
+Apache Maven
+- MariaDB server
+- An SQL client tool like mariadb, DBeaver, or an SQL integration for your IDE
 
 ## Running the app
 
 Prepare the database:
 
 ```sql
-CREATE DATABASE jooq_demo;
-CREATE USER 'user'@'%';
-GRANT ALL ON jooq_demo.* TO 'user'@'%' IDENTIFIED BY 'password';
+CREATE DATABASE demo;
+CREATE USER 'user'@'%' IDENTIFIED BY 'Password123!';
+GRANT SELECT, INSERT, UPDATE, DELETE, DROP ON demo.* TO 'user'@'%';
 
-
-USE jooq_demo;
+USE demo;
 CREATE TABLE programming_language(
-    name VARCHAR(50) NOT NULL UNIQUE,
-    rating INT
+	pl_id INT PRIMARY KEY AUTO_INCREMENT,
+	pl_name VARCHAR(50) NOT NULL UNIQUE,
+	pl_rating INT
 );
 ```
 

@@ -47,7 +47,7 @@ public class Application {
 		Arrays.stream("Java,C++,C#,JavaScript,Rust,Go,Python,PHP".split(","))
 				.forEach(name -> {
 					dslContext.insertInto(PROGRAMMING_LANGUAGE)
-							.columns(PROGRAMMING_LANGUAGE.NAME, PROGRAMMING_LANGUAGE.RATING)
+							.columns(PROGRAMMING_LANGUAGE.PL_NAME, PROGRAMMING_LANGUAGE.PL_RATING)
 							.values(name, (int) (Math.random() * (10 - 3 + 1)) + 3)
 							.execute();
 				});
@@ -57,14 +57,14 @@ public class Application {
 		System.out.println("Top programming languages:");
 
 		List<ProgrammingLanguageRecord> programmingLanguages = dslContext
-				.select(PROGRAMMING_LANGUAGE.NAME, PROGRAMMING_LANGUAGE.RATING)
+				.select(PROGRAMMING_LANGUAGE.PL_NAME, PROGRAMMING_LANGUAGE.PL_RATING)
 				.from(PROGRAMMING_LANGUAGE)
-				.where(PROGRAMMING_LANGUAGE.RATING.greaterThan(rating))
-				.orderBy(PROGRAMMING_LANGUAGE.RATING.desc())
+				.where(PROGRAMMING_LANGUAGE.PL_RATING.greaterThan(rating))
+				.orderBy(PROGRAMMING_LANGUAGE.PL_RATING.desc())
 				.fetchInto(ProgrammingLanguageRecord.class);
 
 		programmingLanguages.stream()
-				.map(pl -> pl.getName() + ": " + pl.getRating())
+				.map(pl -> pl.getPlName() + ": " + pl.getPlRating())
 				.forEach(System.out::println);
 	}
 
