@@ -24,9 +24,14 @@ public class Application {
 	@Bean
 	public ApplicationRunner applicationRunner() {
 		return args -> {
+			deleteProgrammingLanguages();
 			createProgrammingLanguages();
 			printTopProgrammingLanguages();
 		};
+	}
+
+	private void deleteProgrammingLanguages() {
+		repository.deleteAll();
 	}
 
 	private void createProgrammingLanguages() {

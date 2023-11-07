@@ -2,24 +2,24 @@ package com.example;
 
 public class ProgrammingLanguage {
 
-	private String name;
+	private String plName;
 
-	private Integer rating;
+	private Integer plRating;
 
-	public String getName() {
-		return this.name;
+	public String getPlName() {
+		return this.plName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPlName(String plName) {
+		this.plName = plName;
 	}
 
-	public Integer getRating() {
-		return this.rating;
+	public Integer getPlRating() {
+		return this.plRating;
 	}
 
-	public void setRating(Integer rating) {
-		this.rating = rating;
+	public void setPlRating(Integer plRating) {
+		this.plRating = plRating;
 	}
 
 }

@@ -46,7 +46,7 @@ public class Application {
 
 		List<ProgrammingLanguage> programmingLanguages = programmingLanguageMapper.findTopProgrammingLanguages(5);
 		programmingLanguages.stream()
-				.map(pl -> pl.getName() + ": " + pl.getRating())
+				.map(pl -> pl.getPlName() + ": " + pl.getPlRating())
 				.forEach(System.out::println);
 	}
 
