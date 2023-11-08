@@ -7,7 +7,7 @@ public class ProgrammingLanguage {
 	private Integer plRating;
 
 	public String getPlName() {
-		return this.plName;
+		return plName;
 	}
 
 	public void setPlName(String plName) {
@@ -15,7 +15,7 @@ public class ProgrammingLanguage {
 	}
 
 	public Integer getPlRating() {
-		return this.plRating;
+		return plRating;
 	}
 
 	public void setPlRating(Integer plRating) {
