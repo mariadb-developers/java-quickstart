@@ -17,7 +17,7 @@ Alternatively, you can [Download](https://mariadb.com/downloads/) and install th
 2. Connect to the database using [MariaDB Shell](https://mariadb.com/downloads/tools/shell/):
 
 ```shell
-mariadb-shell --dsn mariadb://root:'RootPassword123!'@127.0.0.1
+mariadb -h 127.0.0.1 -u root -p'RootPassword123!'
 ```
 
 Alternatively, you can use any database client compatible with MariaDB.
