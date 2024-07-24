@@ -14,7 +14,7 @@ docker run --name mariadb --detach --publish 3306:3306 --env MARIADB_ROOT_PASSWO
 
 Alternatively, you can [Download](https://mariadb.com/downloads/) and install the server directly on your OS.
 
-2. Connect to the database using [MariaDB Shell](https://mariadb.com/downloads/tools/shell/):
+2. Connect to the database using the [MariaDB CLI client]([https://mariadb.com/downloads/tools/shell/](https://mariadb.com/kb/en/mariadb-client/)):
 
 ```shell
 mariadb -h 127.0.0.1 -u root -p'RootPassword123!'
